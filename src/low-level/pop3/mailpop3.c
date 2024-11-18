@@ -497,10 +497,10 @@ int mailpop3_apop(mailpop3 * f,
 
   /* calculate md5 sum */
 
-  MD5Init(&md5context);
-  MD5Update(&md5context, (const unsigned char *) f->pop3_timestamp, (unsigned int) strlen (f->pop3_timestamp));
-  MD5Update(&md5context, (const unsigned char *) password, (unsigned int) strlen (password));
-  MD5Final(md5digest, &md5context);
+  MD5_Init(&md5context);
+  MD5_Update(&md5context, (const unsigned char *) f->pop3_timestamp, (unsigned int) strlen (f->pop3_timestamp));
+  MD5_Update(&md5context, (const unsigned char *) password, (unsigned int) strlen (password));
+  MD5_Final(md5digest, &md5context);
   
   cmd_ptr = md5string;
   for(i = 0 ; i < 16 ; i++, cmd_ptr += 2)
